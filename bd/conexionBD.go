@@ -10,7 +10,7 @@ import (
 
 /*MongoCN is el objeto de conexion a la BD*/
 var MongoCN = ConectarBD() //var a exportar por eso comienza en mayusucla, va a ser exportada a todos los rchivos q usan bd, si es de uso interno es en minuscula
-var clientOptions = options.Client().ApplyURI("mongodb+srv://ricardoatriana:ricardo2@cluster0-igdae.mongodb.net/<dbname>?retryWrites=true&w=majority")
+var clientOptions = options.Client().ApplyURI("mongodb+srv://ricardoatriana:ricardo2@cluster0-igdae.mongodb.net/parcha?retryWrites=true&w=majority")
 
 /*ConectarBD es la funcion q me permite conectar la base de datos*/
 func ConectarBD() *mongo.Client {
