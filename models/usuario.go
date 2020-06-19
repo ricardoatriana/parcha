@@ -12,7 +12,7 @@ type Usuario struct {
 	Nombre          string             `bson:"nombre" json:"nombre,omitempty"` //uno son los datos de entrada a la base y los otros son los datos de salida al navegador
 	Apellidos       string             `bson:"apellido" json:"apellido,omitempty"`
 	FechaNacimiento time.Time          `bson:"fechaNacimiento" json:"fechaNacimiento,omitempty"`
-	Email           string             `bson:"correoe" json:"correoe,omitempty"` //omitempty hace qe no devuela por el navegado
+	Email           string             `bson:"email" json:"email,omitempty"` //omitempty hace qe no devuela por el navegado
 	Clave           string             `bson:"clave" json:"clave,omitempty"`
 	Avatar          string             `bson:"avatar" json:"avatar,omitempty"`
 	Banner          string             `bson:"banner" json:"banner,omitempty"`
