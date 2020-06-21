@@ -18,6 +18,7 @@ func Manejadores() {
 	//la API va a devolver un status si se pudo logear en un token, deolviendo info al mismo tiempo q recibe
 	//aqui vendrian todas las rutas a manejar, pero ahora se abre el puerto
 	router.HandleFunc("/registro", middlew.ChequeoBD(routers.Registro)).Methods("POST") //cuando en el navegador se le pone un /registro lo procesa a traves del llamaod POST ejecutando el middleware y este al BD si nohay problema devuelve el control al router
+	router.HandleFunc("/login", middlew.ChequeoBD(routers.Login)).Methods("POST")
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {

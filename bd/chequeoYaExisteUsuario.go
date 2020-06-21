@@ -9,7 +9,7 @@ import (
 )
 
 /*ChequeoYaExisteUsuario recibe un email de parametro y chequea si ya esta en la BD*/
-func ChequeoYaExisteUsuario(email string) (models.Usuario, bool, string) { //el models es usuario porque una vez encontro usuario en la bd me devuelve todo el registro
+func ChequeoYaExisteUsuario(email string) (models.Usuario, bool, string) { //el models es usuario porque una vez encontro usuario en la bd me devuelve todo el registro. Esta funcion devuelve el modelo, un usuario y u string con el ID
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
 
