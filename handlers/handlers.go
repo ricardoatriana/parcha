@@ -19,6 +19,7 @@ func Manejadores() {
 	//aqui vendrian todas las rutas a manejar, pero ahora se abre el puerto
 	router.HandleFunc("/registro", middlew.ChequeoBD(routers.Registro)).Methods("POST") //cuando en el navegador se le pone un /registro lo procesa a traves del llamaod POST ejecutando el middleware y este al BD si nohay problema devuelve el control al router
 	router.HandleFunc("/login", middlew.ChequeoBD(routers.Login)).Methods("POST")
+	router.HandleFunc("/verperfil", middlew.ChequeoBD(middlew.ValidoJWT(routers.VerPerfil))).Methods("GET")
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {

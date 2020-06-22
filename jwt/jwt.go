@@ -10,7 +10,7 @@ import (
 /*GeneroJWT genera el encriptado con JWT*/
 func GeneroJWT(t models.Usuario) (string, error) { //el string tiene el token y un error
 
-	miClave := []byte("RicardoElGuapo")
+	miPwrd := []byte("RicardoElGuapo")
 
 	payload := jwt.MapClaims{ //En MapClaims grabamos la lista de privilegios
 		"email":            t.Email,
@@ -24,8 +24,8 @@ func GeneroJWT(t models.Usuario) (string, error) { //el string tiene el token y 
 		"exp":              time.Now().Add(time.Hour * 24).Unix(), //El unix es un formato muy rapido, se graba muy fino y liviano
 	}
 
-	token := jwt.NewWithClaims(jwt.SigningMethodES256, payload) //Estamos en el Header de JWT, estamos eligiendo el algoritmo q tiene elegir para encriptar la clave
-	tokenStr, err := token.SignedString(miClave)
+	token := jwt.NewWithClaims(jwt.SigningMethodHS256, payload) //Estamos en el Header de JWT, estamos eligiendo el algoritmo q tiene elegir para encriptar la clave
+	tokenStr, err := token.SignedString(miPwrd)
 	if err != nil {
 		return tokenStr, err //Tokenstr va a estar vacio porque hay un error
 	}

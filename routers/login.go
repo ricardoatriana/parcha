@@ -22,7 +22,7 @@ func Login(w http.ResponseWriter, r *http.Request) { //No va a devolver nada por
 		return
 	}
 	if len(t.Email) == 0 {
-		http.Error(w, "El email del usuario es requerido"+err.Error(), 400)
+		http.Error(w, "El email del usuario es requerido", 400)
 		return
 	}
 
@@ -34,7 +34,7 @@ func Login(w http.ResponseWriter, r *http.Request) { //No va a devolver nada por
 
 	jwtKey, err := jwt.GeneroJWT(documento) //Esta func GeneroJWT recibe el documento y devuelve el token en modo string para q se pueda devolver al usuario con el http
 	if err != nil {
-		http.Error(w, "Ocurrio un error al intentar generar un token correspondiente"+err.Error(), 400)
+		http.Error(w, "Ocurrio un error al intentar generar un token correspondiente "+err.Error(), 400)
 		return
 	}
 
