@@ -2,7 +2,6 @@ package bd
 
 import (
 	"context" //en el paquete bd todas usan context, casi todas usan time
-	"log"
 	"time"
 
 	"github.com/ricardoatriana/parcha/models"
@@ -30,7 +29,6 @@ func LeoParlas(ID string, pagina int64) ([]*models.DevuelvoParlas, bool) { //ID 
 
 	cursor, err := col.Find(ctx, condicion, opciones) // cursor es como si fuera una tabla donde se guardan los resultado
 	if err != nil {
-		log.Fatal(err.Error())
 		return resultados, false
 	}
 
