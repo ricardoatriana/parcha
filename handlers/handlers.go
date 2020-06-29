@@ -23,6 +23,19 @@ func Manejadores() {
 	router.HandleFunc("/modificarPerfil", middlew.ChequeoBD(middlew.ValidoJWT(routers.ModificarPerfil))).Methods("PUT")
 	router.HandleFunc("/parla", middlew.ChequeoBD(middlew.ValidoJWT(routers.GraboParla))).Methods("POST")
 	router.HandleFunc("/leoParlas", middlew.ChequeoBD(middlew.ValidoJWT(routers.LeoParlas))).Methods("GET")
+	router.HandleFunc("/eliminarParla", middlew.ChequeoBD(middlew.ValidoJWT(routers.EliminarParla))).Methods("DELETE")
+
+	router.HandleFunc("/subirAvatar", middlew.ChequeoBD(middlew.ValidoJWT(routers.SubirAvatar))).Methods("POST")
+	router.HandleFunc("/obtenerAvatar", middlew.ChequeoBD(routers.ObtenerAvatar)).Methods("GET") // no lleva el chequeo de TOken, puede ser vistos in logearse a la app
+	router.HandleFunc("/subirBanner", middlew.ChequeoBD(middlew.ValidoJWT(routers.SubirBanner))).Methods("POST")
+	router.HandleFunc("/obtenerBanner", middlew.ChequeoBD(routers.ObtenerBanner)).Methods("GET") // no lleva el chequeo de TOken, puede ser vistos in logearse a la app
+
+	router.HandleFunc("/altaRelacion", middlew.ChequeoBD(middlew.ValidoJWT(routers.AltaRelacion))).Methods("POST")
+	router.HandleFunc("/bajaRelacion", middlew.ChequeoBD(middlew.ValidoJWT(routers.BajaRelacion))).Methods("DELETE")
+	router.HandleFunc("/consultaRelacion", middlew.ChequeoBD(middlew.ValidoJWT(routers.ConsultaRelacion))).Methods("GET")
+
+	router.HandleFunc("/listaUsuarios", middlew.ChequeoBD(middlew.ValidoJWT(routers.ListaUsuarios))).Methods("GET")
+	router.HandleFunc("/leoParlasSeguidores", middlew.ChequeoBD(middlew.ValidoJWT(routers.LeoParlasRelacion))).Methods("GET")
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {

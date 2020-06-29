@@ -8,7 +8,7 @@ import (
 
 /*Usuario es el modelo de usuario de la base de MOngoDB */
 type Usuario struct {
-	ID              primitive.ObjectID `bson:"_id" json:"id,omitempty"`        //el ID de mongo no es un num, no es un long esun objeto binario llamado ObjectID, es un slide de bytes. Recordar q en BD todo se graba en formato bson. Los ID de Mongo se graban _id
+	ID              primitive.ObjectID `bson:"_id,omitempty" json:"id"`        //el ID de mongo no es un num, no es un long esun objeto binario llamado ObjectID, es un slide de bytes. Recordar q en BD todo se graba en formato bson. Los ID de Mongo se graban _id
 	Nombre          string             `bson:"nombre" json:"nombre,omitempty"` //uno son los datos de entrada a la base y los otros son los datos de salida al navegador
 	Apellido        string             `bson:"apellido" json:"apellido,omitempty"`
 	FechaNacimiento time.Time          `bson:"fechaNacimiento" json:"fechaNacimiento,omitempty"`
