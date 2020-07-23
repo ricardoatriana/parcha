@@ -12,7 +12,7 @@ import (
 func ObtenerBanner(w http.ResponseWriter, r *http.Request) {
 
 	ID := r.URL.Query().Get("id") //De la URL vamos vamos a tener q enviar el id de quien estamos obteniendo el avatar. Porq necesitamos obtner de la app no solo el avatar mio sino de cada usuario
-	if len(ID) > 1 {
+	if len(ID) < 1 {
 		http.Error(w, "Debe enviar el parametro ID", http.StatusBadRequest)
 		return
 	}

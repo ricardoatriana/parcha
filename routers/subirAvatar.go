@@ -13,8 +13,8 @@ import (
 /*SubirAvatar sube el avatar al servidor*/
 func SubirAvatar(w http.ResponseWriter, r *http.Request) { //vamos a capturar un archivo desde el request porq en postman vamos a subir un archivo y tbn lo va a capturar como si fuera el front
 	file, handler, err := r.FormFile("avatar")
-	var extension = strings.Split(handler.Filename, ".")[1]              //vamos a capturar del arch q nos vino la extension. Lo dividimos en el punto, cuando se divide se convierte en un vector y capturamos el 1er elemento del vector, ya convertido en string porque al final se coloca [1]
-	var archivo string = "uploads/avatars" + IDUsuario + "." + extension //IDUsuario es un string. Se hace esto porque el usuario envia un avatar q se toma desde la pc del susuario q se llama "mifoto", y asi no se puede grabar porq habria colisiones enre usuarios q teng amisma foto
+	var extension = strings.Split(handler.Filename, ".")[1]               //vamos a capturar del arch q nos vino la extension. Lo dividimos en el punto, cuando se divide se convierte en un vector y capturamos el 1er elemento del vector, ya convertido en string porque al final se coloca [1]
+	var archivo string = "uploads/avatars/" + IDUsuario + "." + extension //IDUsuario es un string. Se hace esto porque el usuario envia un avatar q se toma desde la pc del susuario q se llama "mifoto", y asi no se puede grabar porq habria colisiones enre usuarios q teng amisma foto
 
 	f, err := os.OpenFile(archivo, os.O_WRONLY|os.O_CREATE, 0666) //se crea una func del OS q devuelve 2 parametros q abre el arch. 0666 son los permisos de lectura,escritura y ejecucion. Los atributos son WriteONLY y Create. Practicamente esta creando el archivo, porq se ha reservado un espacio en el disco para saber si se creo o no
 	if err != nil {
